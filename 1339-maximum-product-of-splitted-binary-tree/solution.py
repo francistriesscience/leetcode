@@ -1,0 +1,24 @@
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def maxProduct(self, root: Optional[TreeNode]) -> int:
+        all_sums = []
+
+        def tree_sum(node):
+            if not node:
+                return 0
+            current_sum = node.val + tree_sum(node.left) + tree_sum(node.right)
+            all_sums.append(current_sum)
+            return current_sum
+
+        total_sum = tree_sum(root)
+        max_p = 0
+        
+        for s in all_sums:
+            max_p = max(max_p, s * (total_sum - s))
+            
+        return max_p % (10**9 + 7)
