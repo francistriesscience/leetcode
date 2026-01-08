@@ -1,3 +1,7 @@
+package main
+
+import "math"
+
 func maxMatrixSum(matrix [][]int) int64 {
 	var totalSum int64 = 0
 	minAbsVal := int64(math.MaxInt64)
