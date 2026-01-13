@@ -7,5 +7,4 @@ class Solution:
             
             digits[i] = 0
             
-        digits.insert(0, 1)
-        return digits
+        return [1] + digits
